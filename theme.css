@@ -2427,12 +2427,7 @@
   }
 
   #dashboardPage .notification_important {
-    background-color: rgba(var(--cherry-red),.75) !important;
-    color: rgba(var(--darkest)) !important;
-  }
-
-
-
+    background-color: rgba(var(--cherry-red),.75) !importanT
 
   /* fields no border */
 
@@ -4011,3 +4006,37 @@
   font-size: 1.75em;
   font-weight: 600;
 }
+
+/* ########## YENİ EKLENEN FAVORİ İKONU KODU ########## */
+
+/* Favori butonunun içindeki ikonu hedefler ve orijinal ikonu gizler (metni görünmez yapar) */
+.btnUserRating .material-icons.detailButton-icon.favorite {
+  font-size: 0 !important;
+}
+
+/* İkonu ::before pseudo-elementi ile yeniden oluştururuz */
+.btnUserRating .material-icons.detailButton-icon.favorite::before {
+  font-family: 'Material Icons'; /* İkon fontunu belirttiğinizden emin olun */
+  font-size: 24px; /* Orijinal ikon boyutunuza göre ayarlayın */
+  font-feature-settings: 'liga';
+  -webkit-font-feature-settings: 'liga';
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Bir öğe favori DEĞİLKEN gösterilecek ikon (Heart_Minus) */
+.btnUserRating[data-isfavorite="false"] .material-icons.detailButton-icon.favorite::before {
+  content: 'Heart_Minus' !important;
+}
+
+/* Bir öğe favori OLDUĞUNDA gösterilecek ikon (Heart_Check) */
+.btnUserRating[data-isfavorite="true"] .material-icons.detailButton-icon.favorite::before {
+  content: 'Heart_Check' !important;
+  color: rgba(var(--cherry-red), 1) !important; /* Favori ikon rengi */
+}
+```
+Google Search Suggestions
+Display of Search Suggestions is required when using Grounding with Google Search. Learn more
+material icons Heart_Minus
+material icons Heart_Check
+jellyfin css favorite icon selector
